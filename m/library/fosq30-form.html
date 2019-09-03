@@ -858,112 +858,99 @@
          //-------------------------------------
          VmInclude: __COMPONENT__/f/form.01.js
          VmInclude: __CURRENT_PATH__/shared-form.js
+      //-------------------------------------
+/*
+      var load2=m.load;
+      m.load=function(){
+          load2();
+          if($("input[name='FOSQ_27']:checked").val()!='0'){
+            $("input[name='FOSQ_28']").prop('required', true);
+            $("input[name='FOSQ_29']").prop('required', true);
+            $("input[name='FOSQ_30']").prop('required', true);
+            $('#relation__ID').show();
+          }
+          else {
+            $("input[name='FOSQ_28']").prop('required', false);
+            $("input[name='FOSQ_29']").prop('required', false);
+            $("input[name='FOSQ_30']").prop('required', false);
+            $('#relation__ID').hide();
+          }
+      }
+      //-------------------------------------
+      $("input[name='FOSQ_27']").change(function(){
+        if($("input[name='FOSQ_27']:checked").val()!='0'){
+            $("input[name='FOSQ_28']").prop('required', true);
+            $("input[name='FOSQ_29']").prop('required', true);
+            $("input[name='FOSQ_30']").prop('required', true);
+            $('#relation__ID').show();
+          }
+          else {
+            $("input[name='FOSQ_28']").prop('required', false);
+            $("input[name='FOSQ_29']").prop('required', false);
+            $("input[name='FOSQ_30']").prop('required', false);
+            $('#relation__ID').hide();
+          }
+      });
+*/
          //-------------------------------------
          var before_submit = m.before_submit;
          m.before_submit = function (data, index) {
-            var v1 = parseFloat(data.FOSQ_1);
-            var v2 = parseFloat(data.FOSQ_2);
-            var v3 = parseFloat(data.FOSQ_3);
-            var v4 = parseFloat(data.FOSQ_4);
-            var v5 = parseFloat(data.FOSQ_5);
-            var v6 = parseFloat(data.FOSQ_6);
-            var v7 = parseFloat(data.FOSQ_7);
-            var v8 = parseFloat(data.FOSQ_8);
-            var v9 = parseFloat(data.FOSQ_9);
-            var v10 = parseFloat(data.FOSQ_10);
-            var v31 = 0.0;
-            var vmean = 0.0;
-            var vgp = 0.0;
-            if (v1 > 0) vmean++;
-            if (v2 > 0) vmean++;
-            if (vmean > 0) vgp = (v1 + v2) / vmean;
-            vmean = 0;
-            var vv = 0;
-            if (v3 > 0) vmean++;
-            if (v4 > 0) vmean++;
-            if (v7 > 0) vmean++;
-            if (vmean > 0) vv = (v3 + v4 + v7) / vmean;
-            vmean = 0;
-            var vso = 0;
-            if (v5 > 0) vmean++;
-            if (vmean > 0) vso = (v5) / vmean;
-            vmean = 0;
-            var val = 0;
-            if (v6 > 0) vmean++;
-            if (v8 > 0) vmean++;
-            if (v9 > 0) vmean++;
-            if (vmean > 0) val = (v6 + v8 + v9) / vmean;
-            vmean = 0;
-            var vis = 0;
-            if (v10 > 0) vmean++;
-            if (vmean > 0) vis = (v10) / vmean;
-            vmean = 0;
-            if (vgp > 0) vmean++;
-            if (vv > 0) vmean++;
-            if (vso > 0) vmean++;
-            if (val > 0) vmean++;
-            if (vis > 0) vmean++;
-            if (vmean > 0) v31 = (vgp + vv + vso + val + vis) / vmean * 5;
-            data.FOSQ = v31.toFixed(2);
-            return before_submit(data, index);
-            /*
-                           var Activity=0;
-                         if (parseFloat(record.FOSQ_5)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_14)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_15)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_16)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_22)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_23)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_24)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_25)>0) Activity=Activity+1;
-                         if (parseFloat(record.FOSQ_26)>0) Activity=Activity+1;
-                         if (Activity==0)	record.FOSQ_Activity="0";
-                         else record.FOSQ_Activity=((parseFloat(record.FOSQ_5)+parseFloat(record.FOSQ_14)+parseFloat(record.FOSQ_15)+parseFloat(record.FOSQ_16)+parseFloat(record.FOSQ_22)+parseFloat(record.FOSQ_23)+parseFloat(record.FOSQ_24)+parseFloat(record.FOSQ_25)+parseFloat(record.FOSQ_26))/Activity).toFixed(1);
-            
-                        var Vigilance=0;
-                         if (parseFloat(record.FOSQ_6)>0) Vigilance+=1;
-                         if (parseFloat(record.FOSQ_7)>0) Vigilance+=1;
-                         if (parseFloat(record.FOSQ_17)>0) Vigilance+=1;
-                         if (parseFloat(record.FOSQ_18)>0) Vigilance+=1;
-                         if (parseFloat(record.FOSQ_20)>0) Vigilance+=1;
-                         if (parseFloat(record.FOSQ_21)>0) Vigilance+=1;
-                         if (Vigilance==0) record.FOSQ_Vigilance="0";
-                         else record.FOSQ_Vigilance=((parseFloat(record.FOSQ_6)+parseFloat(record.FOSQ_7)+parseFloat(record.FOSQ_17)+parseFloat(record.FOSQ_18)+parseFloat(record.FOSQ_20)+parseFloat(record.FOSQ_21))/Vigilance).toFixed(1);
-            
-                        var Intimacy=0;
-                         if (parseFloat(record.FOSQ_27)>0) Intimacy+=1;
-                         if (parseFloat(record.FOSQ_28)>0) Intimacy+=1;
-                         if (parseFloat(record.FOSQ_29)>0) Intimacy+=1;
-                         if (parseFloat(record.FOSQ_30)>0) Intimacy+=1;
-                         if (Intimacy==0)record.FOSQ_Intimacy="0";
-                         else record.FOSQ_Intimacy=((parseFloat(record.FOSQ_27)+parseFloat(record.FOSQ_28)+parseFloat(record.FOSQ_29)+parseFloat(record.FOSQ_30))/Intimacy).toFixed(1);
-            
-                        var Productivity=0;
-                         if (parseFloat(record.FOSQ_1)>0) Productivity+=1;
-                         if (parseFloat(record.FOSQ_2)>0) Productivity+=1;
-                         if (parseFloat(record.FOSQ_3)>0) Productivity+=1;
-                         if (parseFloat(record.FOSQ_4)>0) Productivity+=1;
-                         if (parseFloat(record.FOSQ_8)>0) Productivity+=1;
-                         if (parseFloat(record.FOSQ_9)>0) Productivity+=1;
-                         if (parseFloat(record.FOSQ_10)>0) Productivity+=1;
-                         if (parseFloat(record.FOSQ_11)>0) Productivity+=1;
-                         if (Productivity==0) record.FOSQ_Productivity="0";
-                         else record.FOSQ_Productivity=((parseFloat(record.FOSQ_1)+parseFloat(record.FOSQ_2)+parseFloat(record.FOSQ_3)+parseFloat(record.FOSQ_4)+parseFloat(record.FOSQ_8)+parseFloat(record.FOSQ_9)+parseFloat(record.FOSQ_10)+parseFloat(record.FOSQ_11))/Productivity).toFixed(1);
-            
-                        var Social=0;
-                         if (parseFloat(record.FOSQ_12)>0) Social+=1;
-                         if (parseFloat(record.FOSQ_13)>0) Social+=1;
-                         if (Social==0) record.FOSQ_Social="0";
-                         else record.FOSQ_Social=((parseFloat(record.FOSQ_12)+parseFloat(record.FOSQ_13))/Social).toFixed(1);
-            */
+            var Activity=0;
+            if (parseFloat(data.FOSQ_5)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_14)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_15)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_16)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_22)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_23)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_24)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_25)>0) Activity=Activity+1;
+            if (parseFloat(data.FOSQ_26)>0) Activity=Activity+1;
+            if (Activity==0)	data.FOSQ_Activity="0";
+            else data.FOSQ_Activity=((parseFloat(data.FOSQ_5)+parseFloat(data.FOSQ_14)+parseFloat(data.FOSQ_15)+parseFloat(data.FOSQ_16)+parseFloat(data.FOSQ_22)+parseFloat(data.FOSQ_23)+parseFloat(data.FOSQ_24)+parseFloat(data.FOSQ_25)+parseFloat(data.FOSQ_26))/Activity).toFixed(1);
 
+            var Vigilance=0;
+            if (parseFloat(data.FOSQ_6)>0) Vigilance+=1;
+            if (parseFloat(data.FOSQ_7)>0) Vigilance+=1;
+            if (parseFloat(data.FOSQ_17)>0) Vigilance+=1;
+            if (parseFloat(data.FOSQ_18)>0) Vigilance+=1;
+            if (parseFloat(data.FOSQ_20)>0) Vigilance+=1;
+            if (parseFloat(data.FOSQ_21)>0) Vigilance+=1;
+            if (Vigilance==0) data.FOSQ_Vigilance="0";
+            else data.FOSQ_Vigilance=((parseFloat(data.FOSQ_6)+parseFloat(data.FOSQ_7)+parseFloat(data.FOSQ_17)+parseFloat(data.FOSQ_18)+parseFloat(data.FOSQ_20)+parseFloat(data.FOSQ_21))/Vigilance).toFixed(1);
+
+            var Intimacy=0;
+            if (parseFloat(data.FOSQ_27)>0) Intimacy+=1;
+            if (parseFloat(data.FOSQ_28)>0) Intimacy+=1;
+            if (parseFloat(data.FOSQ_29)>0) Intimacy+=1;
+            if (parseFloat(data.FOSQ_30)>0) Intimacy+=1;
+            if (Intimacy==0)data.FOSQ_Intimacy="0";
+            else data.FOSQ_Intimacy=((parseFloat(data.FOSQ_27)+parseFloat(data.FOSQ_28)+parseFloat(data.FOSQ_29)+parseFloat(data.FOSQ_30))/Intimacy).toFixed(1);
+
+            var Productivity=0;
+            if (parseFloat(data.FOSQ_1)>0) Productivity+=1;
+            if (parseFloat(data.FOSQ_2)>0) Productivity+=1;
+            if (parseFloat(data.FOSQ_3)>0) Productivity+=1;
+            if (parseFloat(data.FOSQ_4)>0) Productivity+=1;
+            if (parseFloat(data.FOSQ_8)>0) Productivity+=1;
+            if (parseFloat(data.FOSQ_9)>0) Productivity+=1;
+            if (parseFloat(data.FOSQ_10)>0) Productivity+=1;
+            if (parseFloat(data.FOSQ_11)>0) Productivity+=1;
+            if (Productivity==0) data.FOSQ_Productivity="0";
+            else data.FOSQ_Productivity=((parseFloat(data.FOSQ_1)+parseFloat(data.FOSQ_2)+parseFloat(data.FOSQ_3)+parseFloat(data.FOSQ_4)+parseFloat(data.FOSQ_8)+parseFloat(data.FOSQ_9)+parseFloat(data.FOSQ_10)+parseFloat(data.FOSQ_11))/Productivity).toFixed(1);
+
+            var Social=0;
+            if (parseFloat(data.FOSQ_12)>0) Social+=1;
+            if (parseFloat(data.FOSQ_13)>0) Social+=1;
+            if (Social==0) data.FOSQ_Social="0";
+            else data.FOSQ_Social=((parseFloat(data.FOSQ_12)+parseFloat(data.FOSQ_13))/Social).toFixed(1);
+            return before_submit(data, index);
          }
          //-------------------------------------
       }
    </script>
    <style>
       #D__ID .mt-95 {
-         max-width: 600px;
+         max-width: 700px;
       }
 
       VmInclude:__CURRENT_PATH__/wappsystem-form.css

@@ -51,8 +51,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>2. Have the results of the operation/intervention made your overall life better or worse?
-                        </h4>
+                        <h4>2. Have the results of the operation/intervention made your overall life better or worse?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -79,8 +78,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>3. Since your operation/intervention, have you felt more or less optimistic about the
-                           future?</h4>
+                        <h4>3. Since your operation/intervention, have you felt more or less optimistic about the future?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -107,8 +105,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>4. Since your operation/intervention, do you feel more or less embarrassed when with a group
-                           of people?</h4>
+                        <h4>4. Since your operation/intervention, do you feel more or less embarrassed when with a group of people?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -162,8 +159,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>6. Since your operation/intervention, have you found it easier or harder to deal with
-                           company?</h4>
+                        <h4>6. Since your operation/intervention, have you found it easier or harder to deal with company?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -190,8 +186,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>7. Since your operation/intervention, do you feel that you have more or less support from
-                           your friends?</h4>
+                        <h4>7. Since your operation/intervention, do you feel that you have more or less support from your friends?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -218,8 +213,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>8. Have you been to your family doctor, for any reason, more or less often, since your
-                           operation/intervention?</h4>
+                        <h4>8. Have you been to your family doctor, for any reason, more or less often, since your operation/intervention?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -246,8 +240,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>9. Since your operation/intervention, do you feel more or less confident about job
-                           opportunities?</h4>
+                        <h4>9. Since your operation/intervention, do you feel more or less confident about job opportunities?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -301,8 +294,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>11. Since your operation/intervention, are there more or fewer people who really care about
-                           you?</h4>
+                        <h4>11. Since your operation/intervention, are there more or fewer people who really care about you?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -329,8 +321,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>12. Since you had the operation/intervention, do you catch colds or infections more or less
-                           often?</h4>
+                        <h4>12. Since you had the operation/intervention, do you catch colds or infections more or less often?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -357,8 +348,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>13. Have you had to take more or less medicine for any reason, since your
-                           operation/intervention?</h4>
+                        <h4>13. Have you had to take more or less medicine for any reason, since your operation/intervention?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -412,8 +402,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>15. Since your operation/intervention, do you feel that you have had more or less support
-                           from your family?</h4>
+                        <h4>15. Since your operation/intervention, do you feel that you have had more or less support from your family?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -467,8 +456,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>11. Since your operation/intervention, are there more or fewer people who really care about
-                           you?</h4>
+                        <h4>17. Since your operation/intervention, have you been able to participate in more or fewer social activities?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -495,8 +483,7 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <h4>18. Since your operation/intervention, have you been more or less inclined to withdraw from
-                           social situations?</h4>
+                        <h4>18. Since your operation/intervention, have you been more or less inclined to withdraw from social situations?</h4>
                         <div class="questiongroup">
                            <fieldset>
                               <label class="radiobuttons">
@@ -537,7 +524,10 @@
          //-------------------------------------
          var before_submit=m.before_submit;
          m.before_submit=function(data,index){
-            //data.GBS=(parseInt(data.GBS_1)+parseInt(data.GBS_2)+parseInt(data.GBS_3)+parseInt(data.GBS_4)+parseInt(data.GBS_5)+parseInt(data.GBS_6)+parseInt(data.GBS_7)+parseInt(data.GBS_8)+parseInt(data.GBS_9)+parseInt(data.GBS_10)+parseInt(data.GBS_11)+parseInt(data.GBS_12)+parseInt(data.GBS_13)+parseInt(data.GBS_14)+parseInt(data.GBS_15)+parseInt(data.GBS_16)+parseInt(data.GBS_17)+parseInt(data.GBS_18)).toString();
+            data.GBS_Total=((((parseInt(data.GBS_1)+parseInt(data.GBS_2)+parseInt(data.GBS_3)+parseInt(data.GBS_4)+parseInt(data.GBS_5)+parseInt(data.GBS_6)+parseInt(data.GBS_7)+parseInt(data.GBS_8)+parseInt(data.GBS_9)+parseInt(data.GBS_10)+parseInt(data.GBS_11)+parseInt(data.GBS_12)+parseInt(data.GBS_13)+parseInt(data.GBS_14)+parseInt(data.GBS_15)+parseInt(data.GBS_16)+parseInt(data.GBS_17)+parseInt(data.GBS_18))/18)-3)*50).toFixed(1);
+            data.GBS_General=((((parseInt(data.GBS_1)+parseInt(data.GBS_2)+parseInt(data.GBS_3)+parseInt(data.GBS_4)+parseInt(data.GBS_5)+parseInt(data.GBS_6)+parseInt(data.GBS_9)+parseInt(data.GBS_10)+parseInt(data.GBS_14)+parseInt(data.GBS_16)+parseInt(data.GBS_17)+parseInt(data.GBS_18))/12)-3)*50).toFixed(1);
+            data.GBS_Physical=((((parseInt(data.GBS_8)+parseInt(data.GBS_12)+parseInt(data.GBS_13))/3)-3)*50).toFixed(1);
+            data.GBS_Social=((((parseInt(data.GBS_7)+parseInt(data.GBS_11)+parseInt(data.GBS_15))/3)-3)*50).toFixed(1);
             return before_submit(data,index);
          }
           //-------------------------------------
