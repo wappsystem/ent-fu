@@ -11,6 +11,7 @@ m.set_req=function(){
 };
 //-------------------------------------
 m.load=function(){
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
         if(m.input!=undefined && m.input.record!=undefined){
         $('#export_section__ID').hide();
     }
@@ -19,7 +20,6 @@ m.load=function(){
     }
 }
 //-------------------------------
-/*
 m.export_records=function(){
     tabledata=m.Table;
     m.Table=$vm.module_list['participant-data'].Table;
@@ -77,7 +77,6 @@ m.export_records=function(){
     });
     
 }
-*/
 //-------------------------------------
 m.cell_render=function(records,I,field,td){
     switch(field){
