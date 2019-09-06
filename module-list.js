@@ -7,7 +7,7 @@
                                                 child_panel:"panel-child-ent-fu",
                                                 questionnaire_setup:"online-questionnaire-setup-ent-fu",
                                                 online_questionnaire:"online-questionnaire-app-ent-fu",
-                                                participant_id:{field1:"Subject_ID",field2:"Subject_Initials"}
+                                                participant_id:{field1:"Randomisation_number",field2:"Initials"}
                                             },
         "participant-form":   		        {url:"$H/m/participant/participant-form.html",Table:"ent-fu-participant"},
 
@@ -32,10 +32,10 @@
         "glasgow-benefit-inventory-form-ent-fu": {url:"$H/m/library/glasgow-benefit-inventory-form.html",Table:"glasgow-benefit-inventory-ent-fu",task_name:"Glasgow Benefit Inventory"},
         "snoring-severity-scale-data-ent-fu":  {url:"$H/m/library/snoring-severity-scale-data.html",Table:"snoring-severity-scale-ent-fu",form_module:"snoring-severity-scale-form-ent-fu",task_name:"The Snoring Severity Scale"},
         "snoring-severity-scale-form-ent-fu":  {url:"$H/m/library/snoring-severity-scale-form.html",Table:"snoring-severity-scale-ent-fu",task_name:"For PARTNER - The Snoring Severity Scale"},
-        "study-completion-data-data-ent-fu":               {url:"$H/m/library/study-completion-data-data.html",Table:"study-completion-data-ent-fu",form_module:"study-completion-data-form-ent-fu"},
-        "study-completion-data-form-ent-fu":               {url:"$H/m/library/study-completion-data-form.html",Table:"study-completion-data-ent-fu"},
-        "sleep-physician-review-data-ent-fu":         {url:"$H/m/library/sleep-physician-review-data.html",Table:"sleep-physician-review-ent-fu",form_module:"sleep-physician-review-form-ent-fu"},
-        "sleep-physician-review-form-ent-fu":         {url:"$H/m/library/sleep-physician-review-form.html",Table:"sleep-physician-review-ent-fu"},
+        "study-completion-data-ent-fu":               {url:"$H/m/library/study-completion-data.html",Table:"study-completion-ent-fu",form_module:"study-completion-form-ent-fu",task_name:"Study Completion/ Withdrawal"},
+        "study-completion-form-ent-fu":               {url:"$H/m/library/study-completion-form.html",Table:"study-completion-ent-fu",task_name:"Study Completion/ Withdrawal"},
+        "sleep-physician-review-data-ent-fu":         {url:"$H/m/library/sleep-physician-review-data.html",Table:"sleep-physician-review-ent-fu",form_module:"sleep-physician-review-form-ent-fu",task_name:"REVIEW 1 – Sleep Physician Review"},
+        "sleep-physician-review-form-ent-fu":         {url:"$H/m/library/sleep-physician-review-form.html",Table:"sleep-physician-review-ent-fu",task_name:"REVIEW 1 – Sleep Physician Review"},
         "phone-call-data-ent-fu":                      {url:"$H/m/library/phone-call-data.html",Table:"phone-call-ent-fu",form_module:"phone-call-form-ent-fu",task_name:"PHONE CALL - With Researcher"},
         "phone-call-form-ent-fu":                      {url:"$H/m/library/phone-call-form.html",Table:"phone-call-ent-fu",task_name:"PHONE CALL - With Researcher"},
     }
