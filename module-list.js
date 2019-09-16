@@ -4,10 +4,10 @@
         "panel-child":              {url:"$H/m/panel-child.html"},
         
         "participant-data":   		        {url:"$H/m/participant/participant-data.html",Table:"ent-fu-participant",form_module:"participant-form",router:1,
-                                                child_panel:"panel-child-ent-fu",
+                                                child_panel:"panel-child",
                                                 questionnaire_setup:"online-questionnaire-setup-ent-fu",
                                                 online_questionnaire:"online-questionnaire-app-ent-fu",
-                                                participant_id:{field1:"Randomisation_number",field2:"Initials"}
+                                                participant_id:{field1:"Randomisation_number",field2:"Intervention_Group"}
                                             },
         "participant-form":   		        {url:"$H/m/participant/participant-form.html",Table:"ent-fu-participant"},
 
@@ -17,8 +17,8 @@
         "notes-data":  	                    {url:"$H/m/library/notes-data.html",Table:"ent-fu-notes",form_module:"notes-form",router:1},
         "notes-form":  	                    {url:"$H/m/library/notes-form.html",Table:"ent-fu-notes"},
 
-        "concom-medication-data-ent-fu":       {url:"$H/m/library/concom-medication-data.html",Table:"concom-medication-ent-fu",form_module:"concom-medication-form-ent-fu",task_name:"Unscheduled - Concomitant Medication"},
-        "concom-medication-form-ent-fu":       {url:"$H/m/library/concom-medication-form.html",Table:"concom-medication-ent-fu",task_name:"Unscheduled - Concomitant Medication"},
+        "serious-adverse-event-data-ent-fu":       {url:"$H/m/library/serious-adverse-event-data.html",Table:"serious-adverse-event-ent-fu",form_module:"serious-adverse-event-form-ent-fu",task_name:"Unscheduled - Serious Adverse Event"},
+        "serious-adverse-event-form-ent-fu":       {url:"$H/m/library/serious-adverse-event-form.html",Table:"serious-adverse-event-ent-fu",task_name:"Unscheduled - Serious Adverse Event"},
         "adverse-event-data-ent-fu":           {url:"$H/m/library/adverse-event-data.html",Table:"adverse-event-ent-fu",form_module:"adverse-event-form-ent-fu",task_name:"Unscheduled - Adverse Event"},
         "adverse-event-form-ent-fu":           {url:"$H/m/library/adverse-event-form.html",Table:"adverse-event-ent-fu",task_name:"Unscheduled - Adverse Event"},
 

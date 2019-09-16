@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <!-- form start -->
                         <form id="F__ID">
-                            <h3>Adverse Event</h3>
+                            <h3 id=title__ID></h3>
                             <!-- participant part for all tsak forms -------------------->
                             <div id="participant_div__ID">
                                 <div class="form-group">
@@ -27,6 +27,34 @@
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="">
+                                        <label style="width:100%"><span class="">Investigator</span>
+                                            <input type=text class="form-control" name="Investigator" placeholder="">
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup">
+                                    <label>Location</label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons ">
+                                            <input type="radio" name="Location" value="Adelaide">
+                                            <span class="checkmark"></span>Adelaide</label>
+                                        <label class="radiobuttons ">
+                                            <input type="radio" name="Location" value="Wollongong">
+                                            <span class="checkmark"></span>Wollongong</label>
+                                        <label class="radiobuttons ">
+                                            <input type="radio" name="Location" value="Sydney">
+                                            <span class="checkmark"></span>Sydney</label>
+                                        <label class="radiobuttons ">
+                                            <input type="radio" name="Location" value="Perth">
+                                            <span class="checkmark"></span>Perth</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
                                         <label style="width:100%"><span class="">Adverse Event</span>
                                             <input type=text class="form-control" name="Adverse_Event" placeholder="">
                                         </label><br>
@@ -36,23 +64,11 @@
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="subquestions">
-                                        <label><span class="">Onset Time</span>
-                                            <input class="form-control" type="time" name="Onset_Time">
-                                        </label><br>
-                                        <label><span class="">Onset Date</span>
-                                            <input class="form-control" type="date" name="Onset_Date">
+                                        <label><span class="">Start Date</span>
+                                            <input class="form-control" type="date" name="Start_Date">
                                         </label>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="questiongroup ">
-                                    <fieldset class="subquestions">
-                                        <label><span class="">Resolution Time</span>
-                                            <input class="form-control" type="time" name="Resolution_Time">
-                                        </label><br>
-                                        <label><span class="">Resolution Date</span>
-                                            <input class="form-control" type="date" name="Resolution_Date">
+                                        <label><span class="">Stop Date</span>
+                                            <input class="form-control" type="date" name="Stop_Date">
                                         </label>
                                     </fieldset>
                                 </div>
@@ -60,72 +76,35 @@
                             <div class="form-group">
                                 <div class="questiongroup">
                                     <fieldset class="subquestions">
-                                        <label><span class="">Was AE Serious?</span>
-                                            <select name="Serious_AE" class=form-control>
+                                        <label><span class="">Severity</span>
+                                            <select name="Severity" class=form-control>
                                                 <option></option>
-                                                <option>Yes</option>
-                                                <option>No</option>
+                                                <option value=1>1 = Mild</option>
+                                                <option value=2>2 = Moderate</option>
+                                                <option value=3>3 = Severe</option>
                                             </select>
                                         </label><br>
-                                        <label><span class="">Frequency</span>
-                                            <select name="Frequency" class=form-control>
-                                                <option></option>
-                                                <option>Single episode</option>
-                                                <option>Intermittent</option>
-                                                <option>Continuous</option>
-                                            </select>
-                                        </label><br>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="questiongroup">
-                                    <fieldset class="subquestions">
-                                        <label><span class="">Intensity</span>
-                                            <select name="Intensity" class=form-control>
-                                                <option></option>
-                                                <option>Mild</option>
-                                                <option>Moderate</option>
-                                                <option>Severe</option>
-                                            </select>
-                                        </label><br>
-                                        <label><span class="">Realtionship to study</span>
+                                        <label><span class="">Relationship to Study Treatment</span>
                                             <select name="Realtionship" class=form-control>
                                                 <option></option>
-                                                <option>Not Related</option>
-                                                <option>Possibly Related</option>
-                                                <option>Related</option>
+                                                <option value=1 >1 = Unrelated</option>
+                                                <option value=2>2 = Possibly Related</option>
+                                                <option value=3>3 = Probably Related</option>
+                                                <option value=4>4 = Definitely Related</option>
                                             </select>
                                         </label><br>
-                                        <label><span class="">Study Agent Action</span>
-                                            <select name="Study_Agent_Action" class=form-control>
+                                        <label><span class="">Action Taken Regarding Study Intervention</span>
+                                            <select name="Action_Taken" class=form-control>
                                                 <option></option>
-                                                <option>None</option>
-                                                <option>Dosage decrease</option>
-                                                <option>Interrupted</option>
-                                                <option>Patient withdrawn</option>
-                                                <option>Drug discontinued</option>
-                                                <option>Not applicable</option>
+                                                <option value=1>1 = None</option>
+                                                <option value=2>2 = Hospitalisation</option>
+                                                <option value=3>3 = Temporarily withdrawal</option>
+                                                <option value=4>4 = Withdrawal from study</option>
+                                                <option value=5>5 = Other (specify)</option>
                                             </select>
                                         </label><br>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="questiongroup">
-                                    <fieldset class="subquestions">
-                                        <label><span class="">Treatment Required</span>
-                                            <select name="Treatment_Required" class=form-control>
-                                                <option></option>
-                                                <option>None</option>
-                                                <option>Concomitant Medication</option>
-                                                <option>Non-drug Tx</option>
-                                                <option>Hospitalization</option>
-                                                <option>Other (specify)</option>
-                                            </select>
-                                        </label><br>
-                                        <label><span class="">Other</span>
-                                            <input type=text name="Other_Treatment" class=form-control />
+                                        <label style='width:100%'><span class="">Other</span>
+                                            <input type=text name="Other_Action" class=form-control />
                                         </label>
                                     </fieldset>
                                 </div>
@@ -136,13 +115,28 @@
                                         <label><span class="">Outcome</span>
                                             <select name="Outcome" class=form-control>
                                                 <option></option>
-                                                <option>Resolved with no Sequelae</option>
-                                                <option>Resolved with Sequelae</option>
-                                                <option>Continuing</option>
-                                                <option>Fatal</option>
-                                                <option>Unknown</option>
+                                                <option value=1>1 = Resolved, no sequel</option>
+                                                <option value=2>2 = AE still present, no treatment</option>
+                                                <option value=3>3 = AE still present, being treated</option>
+                                                <option value=4>4 = Residual effects present, nottreated</option>
+                                                <option value=5>5 = Residual effects present, treated</option>
+                                                <option value=6>6 = Death</option>
+                                                <option value=7>7 = Unknown/ lost to follow-up</option>
                                             </select>
                                         </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup">
+                                    <label>Serious Adverse Event</label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons ">
+                                            <input type="radio" name="SAE" value="Yes">
+                                            <span class="checkmark"></span>Yes (Complete SAE form)</label><br>
+                                        <label class="radiobuttons ">
+                                            <input type="radio" name="SAE" value="No">
+                                            <span class="checkmark"></span>No</label>
                                     </fieldset>
                                 </div>
                             </div>

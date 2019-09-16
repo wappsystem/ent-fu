@@ -20,8 +20,8 @@
     		var participant_record;
     		var count={}
     		var participant_info=function(record){ 
-                if($vm.api_type=="sqlserver")   return record.Randomisation_number+' '+record.Initials; 
-                else                            return record.Data.Randomisation_number+' '+record.Data.Initials; 
+                if($vm.api_type=="sqlserver")   return record.Randomisation_number+' - '+record.Intervention_Group; 
+                else                            return record.Data.Randomisation_number+' -  '+record.Data.Intervention_Group; 
             }
 			//--------------------------------------------------------
             $('#panel__ID a').on('click',function(e){

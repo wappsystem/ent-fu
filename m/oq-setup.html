@@ -41,6 +41,16 @@
                     "eq-5d-form-ent-fu",
                     "fosq30-form-ent-fu",
     			],
+    			"Questionnaire for PARTNER":[
+                    "snoring-severity-scale-form-ent-fu",
+    			],
+            }
+            var q_list_s={
+                "Questionnaire":[
+                    "ess-form-ent-fu",
+                    "eq-5d-form-ent-fu",
+                    "fosq30-form-ent-fu",
+    			],
     			"Surgery Group Only":[
                     "glasgow-benefit-inventory-form-ent-fu",
     			],
@@ -48,11 +58,17 @@
                     "snoring-severity-scale-form-ent-fu",
     			],
             }
+            var questionniare_list={}
             //-------------------------------------
             var load=m.load;
 			m.load=function(){
 				load();
+                console.log(m.input.record.Data.Intervention_Group)
 				if(m.input.record!=undefined){
+                    if(m.input.record.Data.Intervention_Group=='1'){
+                        questionniare_list=q_list_s;
+                    }
+                    else questionniare_list=q_list;
                     set_check_list();
 				}
 			}
@@ -68,14 +84,14 @@
                 var txtA="";
                 var txt="<tr><th style='width:30px'>No.</th><th>Table ID</th><th>Task</th><th style='width:20px'></th></tr>";
                 var No=0;
-                for(visit in q_list){
+                for(visit in questionniare_list){
                     No++;
                     var task=visit;
                     var pid="";
                     txt+="<tr><td>"+No+"</td><td></td><td><label style='cursor:pointer' for="+No+"__ID >"+task+"</label></td><td><label class='checkboxes'><input id="+No+"__ID data-visit='"+task+"' type=checkbox class=visit__ID ><span class='check_checkmark'></span></label></td></tr>";
 
 //                    txt+="<tr><td>"+No+"</td><td></td><td><label style='cursor:pointer' for="+task+"__ID >"+task+"</label></td><td><label class='checkboxes'><input id="+task+"__ID data-visit='"+task+"' type=checkbox class=visit__ID ><span class='check_checkmark'></span></label></td></tr>";
-                    var visit_array=q_list[visit];
+                    var visit_array=questionniare_list[visit];
                     for(k in visit_array){
                         No++;
                         pid=visit_array[k];
@@ -91,7 +107,7 @@
                 //check and uncheck group checkbox
                 $('.visit__ID').on('click',function(){
                     var data_visit=$(this).attr('data-visit');
-                    var visit_array=q_list[data_visit];
+                    var visit_array=questionniare_list[data_visit];
                     if( $(this).prop('checked')==true){
                         for(k in visit_array){
                             var pid=visit_array[k];
