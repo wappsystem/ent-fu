@@ -38,6 +38,8 @@
         "sleep-physician-review-form-ent-fu":         {url:"$H/m/library/sleep-physician-review-form.html",Table:"sleep-physician-review-ent-fu",task_name:"REVIEW 1 – Sleep Physician Review"},
         "phone-call-data-ent-fu":                      {url:"$H/m/library/phone-call-data.html",Table:"phone-call-ent-fu",form_module:"phone-call-form-ent-fu",task_name:"PHONE CALL - With Researcher"},
         "phone-call-form-ent-fu":                      {url:"$H/m/library/phone-call-form.html",Table:"phone-call-ent-fu",task_name:"PHONE CALL - With Researcher"},
+        "current-medication-data-ent-fu":              {url:"$H/m/library/current-medication-data.html",Table:"current-medication-ent-fu",form_module:"current-medication-form-ent-fu",task_name:"REVIEW 1 - Current Medications"},
+        "current-medication-form-ent-fu":              {url:"$H/m/library/current-medication-form.html",Table:"current-medication-ent-fu",task_name:"REVIEW 1 - Current Medications"},
     }
     for(p in modules){
         $vm.module_list[p]=modules[p];

@@ -1,4 +1,3 @@
-
 <section>
     VmInclude:__CURRENT_PATH__/grid.v1h.html
 </section>
@@ -8,9 +7,9 @@
         VmInclude:__COMPONENT__/g/grid.01.js
         VmInclude:__CURRENT_PATH__/shared-data.js
         //-------------------------------------
-        $('#title__ID').text('Pittsburgh Sleep Quality Index')
+        //$('#title__ID').text('Current Medications');
         //-------------------------------------
-        var fields="PSQI1,PSQI2,PSQI3,PSQI4,PSQI5a,PSQI5b,PSQI5c,PSQI5d,PSQI5e,PSQI5f,PSQI5g,PSQI5h,PSQI5i,PSQI5j,PSQI5ji,PSQI6,PSQI7,PSQI8,PSQI9,PSQI10,PSQI10a,PSQI10b,PSQI10c,PSQI10d,PSQI10e,PSQI10ei,PSQIDURAT,PSQIDISTB,PSQILATEN,PSQIDAYDYS,PSQIHSE,PSQISLPQUAL,PSQIMEDS,PSQI";
+        var fields="Medication,Indication,Dose,Frequency";
         m.fields="_Form,_Lock,_Status,_Notes,_Participant_ID,Participant,Intervention_Group,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
     }

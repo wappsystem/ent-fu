@@ -33,7 +33,7 @@ m.export_records=function(){
             var len=txt.length;
             n_txt="["+txt.substring(5,len-9)+"]";
             participant_rec=JSON.parse(n_txt);
-            console.log(JSON.stringify(participant_rec))
+            //console.log(JSON.stringify(participant_rec))
             //$vm.download_csv(m.Table+".csv",o);
             close_model__ID();
             m.Table=tabledata;
@@ -46,11 +46,17 @@ m.export_records=function(){
                     var len=txt.length;
                     var data_rec="["+txt.substring(5,len-9)+"]";
                     var o=JSON.parse(data_rec);
+                    for(var i=0;i<o.length;i++){
+                        var ig=o[i].Participant.split(' - ');
+                        o[i].Intervention_Group=ig[1];
+                    }
                     var fields_ex=m.fields.replace("_Participant_ID","Participant_uid")
                     var export_fields=fields_ex.split(',');
                     //Order by m.fields
                     export_fields=export_fields.slice(4,export_fields.length-3);
+                    //console.log(export_fields)
                     var oo=JSON.parse(JSON.stringify(o,export_fields));
+                    //console.log(oo);
                     //Create an empty item so download.csv will create all headings
                     var item={}
                     for(var i=0;i<export_fields.length;i++){
@@ -86,6 +92,7 @@ m.cell_render=function(records,I,field,td){
             break;
         case '_Participant_ID':
             td.html(records[I].Data.Participant_uid);
+            console.log(records[I].Data)
             break;
         case '_Notes':
             //default: create a hyperlink to load note module with task name and task UID
@@ -105,6 +112,10 @@ m.cell_render=function(records,I,field,td){
                 var _i=$(this).attr('i');
                 process_lock(_i);
             })
+            break;
+        case 'Intervention_Group':
+            var ig=records[I].Data.Participant.split(' - ');
+            td.html(ig[1]);
             break;
     }
 }

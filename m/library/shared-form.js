@@ -13,8 +13,8 @@ var autocomplete_list_p=function(records){
         var obj={};
         if(records[i].Data[part_id1]!= undefined ) obj.label=records[i].Data[part_id1];
         else obj.label=records[i].UID;
-        if(records[i].Data[part_id2]!= undefined ) obj.label+=' '+records[i].Data[part_id2];
-        if(records[i].Data[part_id3]!= undefined ) obj.label+=' '+records[i].Data[part_id3];
+        if(records[i].Data[part_id2]!= undefined ) obj.label+=' - '+records[i].Data[part_id2];
+        if(records[i].Data[part_id3]!= undefined ) obj.label+=' - '+records[i].Data[part_id3];
         obj['UID']=records[i].UID;
         items.push(obj);
     }

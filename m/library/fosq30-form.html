@@ -943,6 +943,14 @@
             if (parseFloat(data.FOSQ_13)>0) Social+=1;
             if (Social==0) data.FOSQ_Social="0";
             else data.FOSQ_Social=((parseFloat(data.FOSQ_12)+parseFloat(data.FOSQ_13))/Social).toFixed(1);
+            var total=0;
+            if(Activity>0) total++;
+            if(Vigilance>0) total++;
+            if(Intimacy>0) total++;
+            if(Productivity>0) total++;
+            if(Social>0) total++;
+            data.FOSQ = ((parseFloat(data.FOSQ_Activity)+parseFloat(data.FOSQ_Vigilance)+parseFloat(data.FOSQ_Intimacy)+parseFloat(data.FOSQ_Productivity)+parseFloat(data.FOSQ_Social))/total*5).toFixed(1)
+
             return before_submit(data, index);
          }
          //-------------------------------------
