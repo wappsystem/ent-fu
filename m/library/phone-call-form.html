@@ -625,7 +625,7 @@
                                         </label>
                                     <fieldset class="">
                                         <label>
-                                            <input class="form-control" type=text name="Procedure_surgeon:" >
+                                            <input class="form-control" type=text name="Procedure_surgeon" >
                                         </label><br>
                                     </fieldset>
                                 </div>
@@ -1746,7 +1746,9 @@
             m.load = function () {
                 load2();
                 $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
-                if(m.input.participant_record.Data.Intervention_Group=='2') $('#surgery_part__ID').hide();
+                //console.log(JSON.stringify(m.input))
+                var ig=m.input.record.Data.Participant.split(' - ')
+                if(ig[1]=='2') $('#surgery_part__ID').hide();
                 else $('#surgery_part__ID').show();
             }
             //-------------------------------------
