@@ -110,7 +110,8 @@ m.cell_render=function(records,I,field,td){
             td.css('text-align','center');
             td.find('u').on('click',function(){
                 var _i=$(this).attr('i');
-                process_lock(_i);
+                //process_lock(_i);
+                process_lock(I);
             })
             break;
         case 'Intervention_Group':
