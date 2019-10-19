@@ -200,10 +200,13 @@ var process_lock=function(I){
     var id=m.records[I]._id;    
     var to_do_lock=0; if(lk==0) to_do_lock=1;
     $vm.request({cmd:"lock",id:id,table:m.Table,lock:to_do_lock},function(res){
-        //console.log(res)
-        var $td=$('#grid__ID tr:nth-child('+(I+2)+')').find('td').eq(2);
-        m.records[I].LK=to_do_lock;
-        m.cell_render(m.records,I,'_Lock',$td);
+        console.log(res)
+        if(res.status=='ok'){
+            var $td=$('#grid__ID tr:nth-child('+(I+2)+')').find('td').eq(2);
+            m.records[I].LK=to_do_lock;
+            m.cell_render(m.records,I,'_Lock',$td);
+        }
+        else $vm.alert('No permission to lock record')
     });
 
 }//-------------------------------------
