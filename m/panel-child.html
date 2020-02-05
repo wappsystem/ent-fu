@@ -33,7 +33,8 @@
                 var app=$(this).attr('app');
                 if(href!=undefined){
                     href=href.replace('?\/','');
-                    href=href.replace(/\//g,'_');
+					href=href.replace(/\//g,'_');
+					//console.log("APP "+JSON.stringify(participant_record))
                     if(app==undefined) $vm.load_module(href,'',{record:participant_record});
                     else if($vm.module_list[href]!=undefined) window.open($vm.module_list[href].url);
                     else alert("The '"+ href +"' is not defined in the module list");

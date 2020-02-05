@@ -1,5 +1,5 @@
 //-------------------------------------
-var participant_name=function(record){ if(record.Data.Intervention_Group!=undefined) return record.Data.Randomisation_number+' - '+record.Data.Intervention_Group; else return $vm.alert("Please selected an Intervention Group for the Participant ");}
+var participant_name=function(record){ if(record.Data.Intervention_Group!=undefined && record.Data.Randomisation_number!=undefined  && record.Data.Randomisation_number!='') return record.Data.Randomisation_number+' - '+record.Data.Intervention_Group; else return $vm.alert("Please enter Randomisation Number and selected an Intervention Group for the Participant ");}
 //-------------------------------------
 //auto select particpant
 var part_id1=$vm.module_list['participant-data'].participant_id.field1;
@@ -44,10 +44,14 @@ m.load=function(){
         $("#F__ID input[name=Participant_uid]").val(m.input.participant_record.UID);
     }
     else if(m.input!=undefined && m.input.record!=undefined){
+        //console.log("Modify")
+        //console.log(JSON.stringify(m.input.record))
+        //console.log(JSON.stringify(m.input.participant_record))
         //modify
     }
     else{
         //new with no parent
+        //console.log("new Child No parent")
     }
     //--------------------------
     var wait2=function(){

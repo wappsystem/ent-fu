@@ -1746,12 +1746,20 @@
             m.load = function () {
                 load2();
                 $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
-                //console.log(JSON.stringify(m.input))
-                var ig=m.input.record.Data.Participant.split(' - ')
-                if(ig[1]=='2') $('#surgery_part__ID').hide();
-                else $('#surgery_part__ID').show();
+                //console.log("PArt "+$('#Participant__ID').val())
+                if($('#Participant__ID').val()!=undefined && $('#Participant__ID').val()!="" ){
+                    if(m.input.participant_record!=undefined){
+                        //var ig=m.input.record.Data.Participant.split(' - ')
+                        if(m.input.participant_record.Data.Intervention_Group=='2') $('#surgery_part__ID').hide();
+                        else $('#surgery_part__ID').show();
+                    }
+                    else{
+                        var ig=m.input.record.Data.Participant.split(' - ')
+                        if(ig[1]==2) $('#surgery_part__ID').hide();
+                        else $('#surgery_part__ID').show();
+                    }
+                }
             }
-            //-------------------------------------
         }
     </script>
     <style>
