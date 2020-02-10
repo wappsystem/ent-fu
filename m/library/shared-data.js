@@ -40,7 +40,7 @@ m.export_records=function(){
             var req={cmd:"export",table:m.Table,I1:m.I1,search:$('#keyword__ID').val()}
             open_model__ID();
             $vm.request(req,function(N,i,txt){
-                //console.log("B"+i+"/"+N);
+                console.log("B"+i+"/"+N);
                 $('#msg__ID').text((100*i/N).toFixed(0)+"%");
                 if(i==-1){
                     var len=txt.length;
@@ -63,13 +63,16 @@ m.export_records=function(){
                         item[export_fields[i]]="";
                     }
                     var output_data=[];
+                    console.log(oo.length)
                     for(var i=0;i<participant_rec.length;i++){
                         for (var k=0;k<oo.length;k++){
                             if(oo[k].Participant_uid==participant_rec[i].ID){
+                                //console.log(participant_rec[i].ID)
                                 output_data.push(oo[k]);
                                 break;
                             }
-                            if(k==oo.length-1) {item.Participant_uid=participant_rec[i].ID; output_data.push(item)}
+                            //Why the following line???
+                            //if(k==oo.length-1) {console.log(participant_rec[i].ID);item.Participant_uid=participant_rec[i].ID; output_data.push(item)}
                         }
                     }
                     var tmp=JSON.stringify(output_data).replace(/Participant_uid/g,"Participant ID")
