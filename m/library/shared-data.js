@@ -33,7 +33,7 @@ m.export_records=function(){
             var len=txt.length;
             n_txt="["+txt.substring(5,len-9)+"]";
             participant_rec=JSON.parse(n_txt);
-            //console.log(JSON.stringify(participant_rec))
+            console.log(JSON.stringify(participant_rec))
             //$vm.download_csv(m.Table+".csv",o);
             close_model__ID();
             m.Table=tabledata;
@@ -46,6 +46,7 @@ m.export_records=function(){
                     var len=txt.length;
                     var data_rec="["+txt.substring(5,len-9)+"]";
                     var o=JSON.parse(data_rec);
+                    //console.log(o)
                     for(var i=0;i<o.length;i++){
                         var ig=o[i].Participant.split(' - ');
                         o[i].Intervention_Group=ig[1];
@@ -54,29 +55,48 @@ m.export_records=function(){
                     var export_fields=fields_ex.split(',');
                     //Order by m.fields
                     export_fields=export_fields.slice(4,export_fields.length-3);
-                    //console.log(export_fields)
+                    //console.log(export_fields.length)
+                    //Sorting export fields as export_fields
                     var oo=JSON.parse(JSON.stringify(o,export_fields));
                     //console.log(oo);
                     //Create an empty item so download.csv will create all headings
-                    var item={}
+                    var empty_item={}
                     for(var i=0;i<export_fields.length;i++){
-                        item[export_fields[i]]="";
+                        empty_item[export_fields[i]]="";
                     }
+                    var empty_item2={};
                     var output_data=[];
-                    console.log(oo.length)
                     for(var i=0;i<participant_rec.length;i++){
+                        //console.log("PPP "+participant_rec[i].ID)
                         for (var k=0;k<oo.length;k++){
                             if(oo[k].Participant_uid==participant_rec[i].ID){
-                                //console.log(participant_rec[i].ID)
+                                //if a particpant with a record for this form add to output
                                 output_data.push(oo[k]);
                                 break;
                             }
-                            //Why the following line???
-                            //if(k==oo.length-1) {console.log(participant_rec[i].ID);item.Participant_uid=participant_rec[i].ID; output_data.push(item)}
+                            //No record found add an empty record for participant
+                            if(k==oo.length-1) { 
+                                empty_item2=(JSON.parse(JSON.stringify(empty_item))); 
+                                empty_item2.Participant_uid=(participant_rec[i].ID).toString();
+                                //empty_item2.Participant=participant_rec[i].Randomisation_number+' - '+participant_rec[i].Intervention_Group;
+                                //empty_item2.Intervention_Group=participant_rec[i].Intervention_Group;
+                                output_data.push(empty_item2);
+                            };
                         }
                     }
-                    var tmp=JSON.stringify(output_data).replace(/Participant_uid/g,"Participant ID")
+                    //console.log(output_data);
+                    // Make first record containing all headings
+                    var part_fields=output_data.shift();
+                    empty_item2=(JSON.parse(JSON.stringify(empty_item)));
+                    for( var k=0;k<export_fields.length;k++){
+                        if(part_fields.hasOwnProperty(export_fields[k])){
+                            empty_item2[export_fields[k]]=part_fields[export_fields[k]];
+                        }
+                    }
+                    output_data.unshift(empty_item2);
+                    var tmp=JSON.stringify(output_data).replace(/Participant_uid/g,"Participant ID").replace(/"off"/g,'""').replace(/"on"/g,'"Y"');
                     output_data=JSON.parse(tmp);
+                    //console.log(output_data)
                     //console.log(JSON.stringify(output_data))
                     $vm.download_csv(m.Table+".csv",output_data);
                     close_model__ID();
