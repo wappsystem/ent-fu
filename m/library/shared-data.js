@@ -21,7 +21,7 @@ m.load=function(){
 }
 //-------------------------------
 m.export_records=function(){
-    tabledata=m.Table;
+    var tabledata=m.Table;
     m.Table=$vm.module_list['participant-data'].Table;
     var participant_rec={};
     var req={cmd:"export",table:m.Table,I1:m.I1,search:$('#keyword__ID').val()}
@@ -94,7 +94,7 @@ m.export_records=function(){
                         }
                     }
                     output_data.unshift(empty_item2);
-                    var tmp=JSON.stringify(output_data).replace(/Participant_uid/g,"Participant ID").replace(/"off"/g,'""').replace(/"on"/g,'"Y"');
+                    var tmp=JSON.stringify(output_data).replace(/Participant_uid/g,"Participant ID").replace(/"off"/g,'"N"').replace(/"on"/g,'"Y"');
                     output_data=JSON.parse(tmp);
                     //console.log(output_data)
                     //console.log(JSON.stringify(output_data))
