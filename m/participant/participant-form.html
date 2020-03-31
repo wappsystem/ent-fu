@@ -149,6 +149,7 @@
 			//-------------------------------------
 			m.before_submit = function (data, index) {
 				var I1 = $('#F__ID input[name=Randomisation_Number').val(); if (I1 != '' && I1 != '-') index.I1 = parseInt(I1);
+				if(data.Submitted_by==undefined) data.Submitted_by=$vm.user_name;
 			}
 			//-------------------------------------
 		}
